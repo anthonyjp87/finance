@@ -10,6 +10,17 @@ df$Date <- as.Date(df$Date, format = "%d/%m/%Y")
 df$Cost <- as.numeric(as.character(df$Cost))
 df$Cost<-ifelse(df$Currency=="S",df$Cost,df$Cost/USDXGBP)
 dfMonth<-df[df$Date >= start_date & df$Date <= end_date,]
-quant<-quantile(dfMonth$Cost, per ,na.rm=TRUE)
+quant<-quantile(dfMonth$Cost, per, na.rm=TRUE)
 top_transactions<-subset(dfMonth, dfMonth$Cost < quant)
 print(top_transactions)
+
+print("Total Expenses over the past 30 days: ")
+print(sum(dfMonth$Cost[dfMonth$Cost<0]))
+print("Total Income over the past 30 days: ")
+print((dfMonth[dfMonth$Cost>0,]))
+
+hist(df$Cost[df$Currency=='S' & df$Cost<0 & df$Cost>-100], breaks=50)
+
+#working list: 
+#use xrate of day
+#remove duplicates automatically so dump file doesn't need cleaning 
