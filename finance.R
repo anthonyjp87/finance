@@ -23,7 +23,7 @@ print(sum(dfMonth$Cost[dfMonth$Cost<0]))
 print("Total Income over the past 30 days: ")
 print((dfMonth[dfMonth$Cost>0,]))
 
-hist(df$Cost[df$Currency=='S' & df$Cost<0 & df$Cost>-100], breaks=50)
+hist(df$Cost[df$Cost<0 & df$Cost>-100], breaks=50)
 
 truecost<-numeric()
 for (i in 0:length(df$Date)){
