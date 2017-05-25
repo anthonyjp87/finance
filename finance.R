@@ -2,7 +2,6 @@
 #remove , separator from numbers
 library(quantmod)
 setwd("~/Documents/R_Files/finance")  
-USDXGBP <- 1.25
 getFX("GBP/USD")
 per <- 0.2
 start_date <-Sys.Date()-30
